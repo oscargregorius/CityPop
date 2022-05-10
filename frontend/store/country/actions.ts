@@ -16,6 +16,7 @@ export const getCountry = (country: string): AppThunk => {
       }
       return;
     } catch (error) {
+      dispatch(setLoading(false));
       dispatch(setErrorMsg("Something went wrong"));
       dispatch(setIsOpen(true));
       return;

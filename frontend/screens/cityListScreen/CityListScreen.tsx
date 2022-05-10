@@ -1,8 +1,24 @@
 import { Text } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { StyledView } from "./StyledCityListScreen";
+import { useDispatch } from "react-redux";
+import { setCity } from "../../store/city/citySlice";
+import { RouteProp } from "@react-navigation/native";
+import { City } from "../../store/city/types";
 
-export default function CityListScreen() {
+interface Props {
+  route: RouteProp<{ params: { city: City } }, "params">;
+}
+
+export default function CityListScreen({ route }: Props) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      dispatch(setCity(null));
+    };
+  }, []);
+
   return (
     <StyledView>
       <Text>CityList</Text>

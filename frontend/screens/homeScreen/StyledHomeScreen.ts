@@ -2,15 +2,15 @@ import styled from "styled-components/native";
 
 export const StyledView = styled.View`
   height: 100%;
+  display: flex;
 `;
 
 export const StyledTextWrapper = styled.View`
-  display: flex;
-  height: 50%;
   justify-content: center;
   align-items: center;
+  flex: 0.5;
 `;
 
 export const StyledWrapper = styled.View`
-  height: 50%;
+  flex: 0.5;
 `;

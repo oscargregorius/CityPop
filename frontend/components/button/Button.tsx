@@ -1,10 +1,10 @@
 import React from "react";
 import { StyledButton } from "./StyledButton";
+import { Platform } from "react-native";
 
 interface Props {
   text: string;
   mode?: "text" | "outlined" | "contained";
-  color?: string;
   width?: string;
   marginBottom?: string;
   handlePress: Function;
@@ -13,7 +13,6 @@ interface Props {
 export default function Button({
   text,
   mode,
-  color,
   width,
   marginBottom,
   handlePress,
@@ -22,7 +21,7 @@ export default function Button({
     <StyledButton
       width={width}
       marginBottom={marginBottom}
-      color={color ? color : ""}
+      color={Platform.OS === "ios" ? "#006ee6" : "black"}
       mode={mode ? mode : "outlined"}
       onPress={() => handlePress()}
     >

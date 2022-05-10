@@ -13,9 +13,11 @@ export const getCity = (city: string): AppThunk => {
       if (res.status !== 200) {
         dispatch(setErrorMsg("The country was not found"));
         dispatch(setIsOpen(true));
+        return;
       }
       return;
     } catch (error) {
+      dispatch(setLoading(false));
       dispatch(setErrorMsg("Something went wrong"));
       dispatch(setIsOpen(true));
       return;

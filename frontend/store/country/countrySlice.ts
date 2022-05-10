@@ -10,7 +10,7 @@ const countrySlice = createSlice({
   name: "country",
   initialState,
   reducers: {
-    setCountry: (state, { payload }: PayloadAction<Country>) => {
+    setCountry: (state, { payload }: PayloadAction<Country | null>) => {
       state.country = payload;
       state.loading = false;
     },

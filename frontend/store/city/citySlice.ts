@@ -10,7 +10,7 @@ const citySlice = createSlice({
   name: "city",
   initialState,
   reducers: {
-    setCity: (state, { payload }: PayloadAction<City>) => {
+    setCity: (state, { payload }: PayloadAction<City | null>) => {
       state.city = payload;
       state.loading = false;
     },
