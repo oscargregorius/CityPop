@@ -41,6 +41,7 @@ Search for countries and cities to see each cities population in a proper way.
 3. Change directory into backend and type "npm install".
 4. Change diretory into frontend folder and type "npm install".
 5. Stay in the frontend diretory and type "npm start" to start the project.
-6. Enjoy the application!
+6. Run the iOS/android simulator (if you want to run the application on your mobile device you have to change localhost to your ip adress)
+7. Enjoy the application!
 
 ## Author: Oscar Gregorius
