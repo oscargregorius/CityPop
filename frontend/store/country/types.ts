@@ -1,6 +1,8 @@
+import { City } from "../city/types";
+
 export type Country = {
   country: string;
-  cities: { id: number; city: string; population: number }[];
+  cities: City[];
 };
 
 export interface CountryState {

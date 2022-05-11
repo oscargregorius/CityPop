@@ -11,6 +11,7 @@ import { countrySelector } from "../../store/country/countrySlice";
 import { getCountry } from "../../store/country/actions";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../components/routes/Routes";
+import { setErrorMsg, setIsOpen } from "../../store/errorHandler/errorSlice";
 
 type Props = NativeStackScreenProps<RootStackParamList, "SearchCountry">;
 
@@ -23,6 +24,12 @@ export default function SearchCountryScreen({ navigation }: Props) {
   }, [country]);
 
   const handlePress = (countryToSearchFor: string) => {
+    const trimmedSearchWord = countryToSearchFor.trim();
+    if (!trimmedSearchWord) {
+      dispatch(setErrorMsg("PLEASE ENTER A COUNTRY TO SEARCH FOR"));
+      dispatch(setIsOpen(true));
+      return;
+    }
     dispatch(getCountry(countryToSearchFor));
   };
 

@@ -1,4 +1,3 @@
-import { Snackbar } from "react-native-paper";
 import { StyledSnackbar } from "./StyledErrorHandler";
 import { useSelector, useDispatch } from "react-redux";
 import { errorSelector, setIsOpen } from "../../store/errorHandler/errorSlice";

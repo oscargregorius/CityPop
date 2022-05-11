@@ -12,8 +12,8 @@ import HeaderTitle from "../../components/headerTitle/HeaderTitle";
 import Button from "../../components/button/Button";
 import { City } from "../../store/city/types";
 import { RootStackParamList } from "../../components/routes/Routes";
-import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
 
 interface Props {
   route: RouteProp<{ params: { country: Country } }, "params">;

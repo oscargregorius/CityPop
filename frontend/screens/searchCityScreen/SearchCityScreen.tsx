@@ -11,6 +11,7 @@ import { citySelector } from "../../store/city/citySlice";
 import { getCity } from "../../store/city/actions";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../components/routes/Routes";
+import { setIsOpen, setErrorMsg } from "../../store/errorHandler/errorSlice";
 
 type Props = NativeStackScreenProps<RootStackParamList, "SearchCity">;
 
@@ -23,6 +24,12 @@ export default function SearchCityScreen({ navigation }: Props) {
   }, [city]);
 
   const handlePress = (cityToSearchFor: string) => {
+    const trimmedSearchWord = cityToSearchFor.trim();
+    if (!trimmedSearchWord) {
+      dispatch(setErrorMsg("PLEASE ENTER A CITY TO SEARCH FOR"));
+      dispatch(setIsOpen(true));
+      return;
+    }
     dispatch(getCity(cityToSearchFor));
   };
 
