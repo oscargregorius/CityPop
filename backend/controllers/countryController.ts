@@ -19,9 +19,8 @@ export const getCountry = async (req: Request, res: Response) => {
     const { alpha2 } = iso.whereCountry(country);
     const endpoint = process.env.COUNTRY_URL + alpha2;
     const { data } = await axios.get(endpoint);
-
     if (!data.geonames[0]) {
-      return res.status(400).send("No country found");
+      return res.status(404).send("No country found");
     }
     const cities = data.geonames.map((city: City) => {
       return {
@@ -39,6 +38,6 @@ export const getCountry = async (req: Request, res: Response) => {
     };
     return res.status(200).send(countryWithCities);
   } catch (error) {
-    return res.status(400).send("Something went wrong");
+    return res.status(400).send("No country found");
   }
 };

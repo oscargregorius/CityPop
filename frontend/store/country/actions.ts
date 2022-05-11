@@ -11,13 +11,13 @@ export const getCountry = (country: string): AppThunk => {
       const res = await axios.get(countryUrl);
       res.status === 200 && dispatch(setCountry(res.data));
       if (res.status !== 200) {
-        dispatch(setErrorMsg("The country was not found"));
+        dispatch(setErrorMsg(res.data));
         dispatch(setIsOpen(true));
       }
       return;
-    } catch (error) {
+    } catch (error: any) {
       dispatch(setLoading(false));
-      dispatch(setErrorMsg("Something went wrong"));
+      dispatch(setErrorMsg(error.response.data.toUpperCase()));
       dispatch(setIsOpen(true));
       return;
     }

@@ -12,7 +12,7 @@ export const getCity = async (req: Request, res: Response) => {
   try {
     const { data } = await axios.get(endpoint);
     if (!data.geonames[0]) {
-      return res.status(400).send("No city found");
+      return res.status(404).send("No city found");
     }
     const city = {
       id: data.geonames[0].geonameId,
